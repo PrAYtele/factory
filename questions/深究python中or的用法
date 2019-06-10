@@ -1,0 +1,23 @@
+做项目时，需要判断两个变量的内容是否正确，不正确则调换内容
+一开始为了省事想当然的写了几个or的关键词判断
+   if len(icons1) != 0:
+                
+                     if ('议' or '车' or '餐' or '音' or '商' or '送' or '覆') in icons1[0]:
+                         temmp = icons1
+                         icons1 = icons2
+                         icons2 = temmp
+                         print(111)
+然后总是对某些关键字不起作用，折腾了一下午后，改写为
+                    if '议'  in sale:
+                        equip,sale = sale,equip
+                    elif '车' in sale:
+                        equip, sale = sale, equip
+                    elif '接' in sale:
+                        equip, sale = sale, equip
+                    elif '音' in sale:
+                        equip, sale = sale, equip
+                    elif '餐' in sale:
+                        equip, sale = sale, equip
+终于正常工作
+究其原因，是因为or其实是一个选择语句，连续的or最终只会输出一个关键字'议'
+编写程序时千万不能想当然的按照人的思维来写，必须按照严格的逻辑，否则就会闹出笑话
