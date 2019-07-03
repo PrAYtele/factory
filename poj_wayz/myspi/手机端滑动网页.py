@@ -22,13 +22,15 @@ def get_url():
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(3)
     info = re.findall(r'item-shop-name">(.*?)<.*?star star-(.*?)">.*?item-comment-price">(.*?)</.*?item-info-region">(.*?)<.*?category-name">(.*?)<',driver.page_source)
-
+    # stars = re.findall(r'star star-(.*?)\"',driver.page_source)
+    # price = re.findall(r'item-comment-price\">(.*?)<',driver.page_source)
+    # region = re.findall(r'item-info-region\">(.*?)<',driver.page_source)
     csvFile2 = open('test.csv', 'a', newline='')  # 设置newline，否则两行之间会空一行
     writer = csv.writer(csvFile2, delimiter='\t')
     m = len(info)
+
     for i in range(m):
         writer.writerow(str(info[i]))
-
 
     csvFile2.close()
 
