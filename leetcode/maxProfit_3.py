@@ -1,9 +1,5 @@
 class Solution:
     def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
         first_buy, first_sell, second_buy, second_sell = -sys.maxsize, 0, -sys.maxsize, 0
         for price in prices:
             first_buy = max(first_buy, -price)  # 第一次买入手上的钱
