@@ -1,0 +1,5 @@
+^异或操作符，对两个二进制码取异或，可以用来判断同号，x^0是0，0^x等于这个数本身
+&与操作符，对二进制码取与
+<<,>>代表向左或向右移一位二进制码，x<<1等于x*2
+example:
+        sign = True if dividend^divisor>0 else False
