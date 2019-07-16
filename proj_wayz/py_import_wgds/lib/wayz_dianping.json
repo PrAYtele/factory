@@ -1,0 +1,1346 @@
+{
+    "src_db_config":{"host": "localhost","user": "postgres","pwd": "19931005cfy","db_name": "dianping_selftest", "table_name": "dp_aomen"},
+    "db_config":{"host": "localhost","user": "postgres","pwd": "19931005cfy","db_name": "dp_importer", "table_name": ""},
+    "data_source_name": "dianping",
+    "category_to_schema_name": "tag",
+    "category_map_path": "E:/wayz/05geoimporter-dev_cy/geoimporter-geoImporter_1/geoimporter-geoImporter/geoimporter/config/dianping_category_to_wayz_category.csv",
+    "category_to_schema_map_path": "E:/wayz/05geoimporter-dev_cy/geoimporter-geoImporter_2/geoimporter-geoImporter/geoimporter/config/wayz-to-schema.csv",
+    "wayz_category_name_id_map_path": "E:/wayz/05geoimporter-dev_cy/geoimporter-geoImporter_2/geoimporter-geoImporter/geoimporter/config/wayz_category_id_name_mapping.csv",
+    "ori_category_name_id_map_path": "E:/wayz/05geoimporter-dev_cy/geoimporter-geoImporter_2/geoimporter-geoImporter/geoimporter/config/dianping_category_id_name_mapping.csv",
+    "admin_code_old_new_map_path": "E:/wayz/05geoimporter-dev_cy/geoimporter-geoImporter_2/geoimporter-geoImporter/geoimporter/config/China_admin_code_old_new_mapping.csv",
+    "admin_new_code_name_map_path": "E:/wayz/05geoimporter-dev_cy/geoimporter-geoImporter_2/geoimporter-geoImporter/geoimporter/config/China_admin_code_and_name_2019.csv",
+    "statistics_output_dir": "E:/wayz/05geoimporter-dev_cy/geoimporter-geoImporter_2/geoimporter-geoImporter/geoimporter/statistics",
+    "total_statistical_report_file": "total_statistics_results.csv",
+    "failed_import_output_file": "failed_import_results.csv",
+    "common_field": {
+        "edition": [
+            {
+                "name": "modifier",
+                "type": "varchar",
+                "value": "shawn"
+            },
+            {
+                "name": "state",
+                "type": "varchar",
+                "value": "add"
+            },
+            {
+                "name": "version",
+                "type": "varchar",
+                "value": "v0.1"
+            },
+            {
+                "name": "create_time",
+                "type": "bigint",
+                "value": ""
+            },
+            {
+                "name": "update_time",
+                "type": "bigint",
+                "value": ""
+            },
+            {
+                "name": "source_ids",
+                "type": "varchar[]",
+                "value": "{dianping}"
+            },
+            {
+                "name": "customized_id",
+                "type": "varchar",
+                "value": ""
+            }
+        ],
+        "address": [
+            {
+              "name": "province",
+              "type": "varchar",
+              "source_column": [""],
+              "rule": ""
+            },
+            {
+              "name": "city",
+              "type": "varchar",
+              "source_column": ["city"],
+              "rule": ""
+            },
+            {
+              "name": "district",
+              "type": "varchar",
+              "source_column": ["district_zh"],
+              "rule": ""
+            },
+            {
+              "name": "township",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "neighbor_hood",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "postcode",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "business_area",
+              "type": "varchar",
+              "source_column": ["business"],
+              "rule": ""
+            },
+            {
+              "name": "road",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "road_crossing",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "house_number",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "bounding_area",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "building",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "floor",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "room",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "address",
+              "type": "varchar",
+              "source_column": ["address"],
+              "rule": ""
+            }
+        ],
+        "place": [
+            {
+                "name": "id",
+                "type": "bigint",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "name",
+                "type": "varchar",
+                "source_column": ["name"],
+                "rule": ""
+            },
+            {
+                "name": "name_zh",
+                "type": "varchar",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "name_en",
+                "type": "varchar",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "name_py",
+                "type": "varchar",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "aliases",
+                "type": "varchar[]",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "brief",
+                "type": "varchar",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "code",
+                "type": "int",
+                "source_column": ["code"],
+                "rule": "bigint_to_int"
+            },
+            {
+                "name": "category_ids",
+                "type": "int[]",
+                "source_column": ["tag"],
+                "rule": "category_ori_to_wayz_category"
+            },
+            {
+                "name": "category_names",
+                "type": "varchar[]",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "tag_ids",
+                "type": "int[]",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "tag_names",
+                "type": "varchar[]",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "image_urls",
+                "type": "varchar[]",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "geometry",
+                "type": "geometry(Geometry,4326)",
+                "source_column": ["geometry"],
+                "rule": ""
+            }
+        ],
+        "process":[
+            {
+                "name": "original_category_ids",
+                "type": "varchar[]",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "original_category_names",
+                "type": "varchar[]",
+                "source_column": ["tag"],
+                "rule": "str_to_str_arr"
+            }
+        ]
+    },
+    "landcover": {
+      "common_field": [
+      ],
+      "schemas": [
+      ]
+    },
+    "landuse": {
+      "common_field": [
+      ],
+      "schemas": [
+      ]
+    },
+    "entity": {
+      "common_field":[
+        {
+            "name": "brands",
+            "type": "int[]",
+            "source_column": [],
+            "rule": ""
+        },
+        {
+            "name": "opening_hours",
+            "type": "varchar",
+            "source_column": ["opening_hours"],
+            "rule": ""
+        },
+        {
+            "name": "phone_numbers",
+            "type": "varchar[]",
+            "source_column": ["tel"],
+            "rule": "str_to_str_arr"
+        },
+        {
+            "name": "parent_id",
+            "type": "varchar",
+            "source_column": [],
+            "rule": ""
+        },
+        {
+            "name": "parent_name",
+            "type": "varchar",
+            "source_column": [],
+            "rule": ""
+        },
+        {
+            "name": "website",
+            "type": "varchar",
+            "source_column": [],
+            "rule": ""
+        },
+        {
+            "name": "chains",
+            "type": "bool",
+            "source_column": ["chains"],
+            "rule": "str_to_bool"
+        },
+        {
+            "name": "open_date",
+            "type": "varchar",
+            "source_column": [],
+            "rule": ""
+        },
+        {
+            "name": "close_date",
+            "type": "varchar",
+            "source_column": [],
+            "rule": ""
+        }
+      ],
+      "schemas":[
+        {
+          "table": "Airport",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields":[
+            {
+                "name": "area",
+                "type": "bigint",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "seats",
+                "type": "bigint",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "international_routes",
+                "type": "bigint",
+                "source_column": [],
+                "rule": ""
+            },
+            {
+                "name": "domestic_routes",
+                "type": "bigint",
+                "source_column": [],
+                "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "AutoService",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+                "name": "price",
+                "type": "int",
+                "source_column": ["price"],
+                "rule": "float_to_int"
+            },
+            {
+                "name": "service_rating",
+                "type": "double precision",
+                "source_column": ["service_rating"],
+                "rule": ""
+            },
+            {
+                "name": "environment_rating",
+                "type": "double precision",
+                "source_column": ["environment_rating"],
+                "rule": ""
+            },
+            {
+                "name": "cost_performance",
+                "type": "double precision",
+                "source_column": [],
+                "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Bank",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+              {
+                  "name": "efficiency_rating",
+                  "type": "double precision",
+                  "source_column": [],
+                  "rule": ""
+              },
+              {
+                  "name": "service_rating",
+                  "type": "double precision",
+                  "source_column": ["service_rating"],
+                  "rule": ""
+              },
+              {
+                  "name": "business_opening_hours",
+                  "type": "varchar",
+                  "source_column": [],
+                  "rule": ""
+              }
+          ]
+        },
+        {
+          "table": "Chemist",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": []
+        },
+        {
+          "table": "College",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "fee",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "area",
+              "type": "bigint",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "faculties",
+              "type": "varchar[]",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Education",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "effect_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "environment_rating",
+              "type": "double precision",
+              "source_column": ["environment_rating"],
+              "rule": ""
+            },
+            {
+              "name": "teacher_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "EnergyStation",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            }
+          ]
+        },
+        {
+          "table": "Entertainment",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "service_rating",
+              "type": "double precision",
+              "source_column": ["service_rating"],
+              "rule": ""
+            },
+            {
+              "name": "environment_rating",
+              "type": "double precision",
+              "source_column": ["environment_rating"],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Entity",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+          ]
+        },
+        {
+          "table": "Factory",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "area",
+              "type": "bigint",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "establish_date",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "industry",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Farm",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "area",
+              "type": "bigint",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Food",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+              {
+                  "name": "price",
+                  "type": "int",
+                  "source_column": ["price"],
+                  "rule": "float_to_int"
+              },
+              {
+                  "name": "overall_rating",
+                  "type": "double precision",
+                  "source_column": [],
+                  "rule": ""
+              },
+              {
+                  "name": "stars",
+                  "type": "double precision",
+                  "source_column": ["stars"],
+                  "rule": "get_stars"
+              },
+              {
+                  "name": "environment_rating",
+                  "type": "double precision",
+                  "source_column": ["environment_rating"],
+                  "rule": ""
+              },
+              {
+                  "name": "service_rating",
+                  "type": "double precision",
+                  "source_column": ["service_rating"],
+                  "rule": ""
+              },
+              {
+                  "name": "taste_rating",
+                  "type": "double precision",
+                  "source_column": ["taste_rating"],
+                  "rule": ""
+              },
+              {
+                  "name": "facility_rating",
+                  "type": "double precision",
+                  "source_column": [],
+                  "rule": ""
+              },
+              {
+                  "name": "product_rating",
+                  "type": "double precision",
+                  "source_column": ["food_rating"],
+                  "rule": ""
+              },
+              {
+                  "name": "comment_count",
+                  "type": "int",
+                  "source_column": ["comment_count"],
+                  "rule": ""
+              }
+          ]
+        },
+        {
+          "table": "ForeignInstitution",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "owning_country_id",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "owning_country_name",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Government",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "admin_level",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Hall",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "efficiency_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Health",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            }
+          ]
+        },
+        {
+          "table": "Hospital",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "doctor_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "facility_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "registeration_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Hotel",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "overall_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "environment_rating",
+              "type": "double precision",
+              "source_column": ["environment_rating"],
+              "rule": ""
+            },
+            {
+              "name": "check_in",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "check_out",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "facilities",
+              "type": "varchar[]",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Institute",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": []
+        },
+        {
+          "table": "Kindergarten",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "capacity",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "fee",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "min_age",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "max_age",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Mall",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "overall_rating",
+              "type": "double precision",
+              "source_column": ["overall_rating"],
+              "rule": ""
+            },
+            {
+              "name": "stars",
+              "type": "double precision",
+              "source_column": ["stars"],
+              "rule": "get_stars"
+            },
+            {
+              "name": "facility_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "service_rating",
+              "type": "double precision",
+              "source_column": ["service_rating"],
+              "rule": ""
+            },
+            {
+              "name": "environment_rating",
+              "type": "double precision",
+              "source_column": ["environment_rating"],
+              "rule": ""
+            },
+            {
+              "name": "recommend_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "hit_total_count",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "hit_monthly_count",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "parking",
+              "type": "varchar[]",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "comment_count",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Market",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            }
+          ]
+        },
+        {
+          "table": "Mine",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "classification",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "area",
+              "type": "bigint",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Office",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": []
+        },
+        {
+          "table": "Organization",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": []
+        },
+        {
+          "table": "Park",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "admin_level",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "area",
+              "type": "bigint",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "establish_time",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Parking",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "spaces",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Pet",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "service_rating",
+              "type": "double precision",
+              "source_column": ["service_rating"],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Port",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "classification",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Residential",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "build_date",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "area",
+              "type": "bigint",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "RoadEntrance",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "classification",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Scenic",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "overall_rating",
+              "type": "double precision",
+              "source_column": ["overall_rating"],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "School",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "fee",
+              "type": "int",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Service",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "service_rating",
+              "type": "double precision",
+              "source_column": ["service_rating"],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "ServiceArea",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            }
+          ]
+        },
+        {
+          "table": "Shop",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "service_rating",
+              "type": "double precision",
+              "source_column": ["service_rating"],
+              "rule": ""
+            },
+            {
+              "name": "environment_rating",
+              "type": "double precision",
+              "source_column": ["environment_rating"],
+              "rule": ""
+            },
+            {
+              "name": "product_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "overall_rating",
+              "type": "double precision",
+              "source_column": ["overall_rating"],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Sports",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "facility_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "environment_rating",
+              "type": "double precision",
+              "source_column": ["environment_rating"],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Station",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "area",
+              "type": "bigint",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "build_date",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "line_ids",
+              "type": "varchar[]",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "line_names",
+              "type": "varchar[]",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Supermarket",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "service_rating",
+              "type": "double precision",
+              "source_column": ["service_rating"],
+              "rule": ""
+            },
+            {
+              "name": "environment_rating",
+              "type": "double precision",
+              "source_column": ["environment_rating"],
+              "rule": ""
+            },
+            {
+              "name": "products_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Theater",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "visual_effect_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "environment_rating",
+              "type": "double precision",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Toll",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "affiliation",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "build_date",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Tower",
+          "source_table": [""],
+          "field_type": "",
+          "filter_rule": "",
+          "fields": [
+            {
+              "name": "area",
+              "type": "bigint",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "developer",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            },
+            {
+              "name": "property_management",
+              "type": "varchar",
+              "source_column": [],
+              "rule": ""
+            }
+          ]
+        },
+        {
+          "table": "Venue",
+          "fields": [
+            {
+              "name": "price",
+              "type": "int",
+              "source_column": ["price"],
+              "rule": "float_to_int"
+            },
+            {
+              "name": "service_rating",
+              "type": "double precision",
+              "source_column": ["service_rating"],
+              "rule": ""
+            },
+            {
+              "name": "environment_rating",
+              "type": "double precision",
+              "source_column": ["environment_rating"],
+              "rule": ""
+            }
+          ]
+        }
+  
+      ]
+  
+    },
+    "region":{
+      "common_field": [
+      ],
+      "schemas": [
+      ]
+    }
+  }
+  
+  
+  
+  
+  
