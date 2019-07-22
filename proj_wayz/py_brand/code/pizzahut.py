@@ -15,7 +15,7 @@ cities = []
 
 def get_cities():
     """ 从文件中获取城市 """
-    file_name = 'data/cities.txt'
+    file_name = 'data/tool_data/cities.txt'
     with open(file_name, 'r', encoding='UTF-8-sig') as file:
         for line in file:
             city = line.replace('\n', '')
@@ -31,7 +31,7 @@ def get_cities():
         count += 1
         #time.sleep(2)
         #print('ssssss')
-        with open('data/pizzahut.json', 'w', encoding='UTF-8') as file:
+        with open('data/out_data/pizzahut.json', 'w', encoding='UTF-8') as file:
             file.write(json.dumps(results, indent=4, ensure_ascii=False))
 
 

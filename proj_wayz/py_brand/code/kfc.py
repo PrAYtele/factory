@@ -4,7 +4,7 @@ import urllib.request
 import urllib.parse
 import json
 import requests
-import lib.writer as writer
+import lib.tool as tool
 
 for j in range(1,654):
     headers = {
@@ -45,6 +45,6 @@ for j in range(1,654):
         if not city:
             city = ''
         temp = name+','+address+','+equip+','+city
-        writer.csv_write('data/kfc.csv', temp)
+        tool.csv_write('data/out_data/kfc.csv', temp)
         continue
     continue

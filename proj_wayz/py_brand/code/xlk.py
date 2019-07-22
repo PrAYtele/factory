@@ -1,11 +1,10 @@
 import time
 import re
-import lib.writer as writer
+import lib.tool as tool
 from selenium.webdriver.support.wait import WebDriverWait
-import lib.webdriver as webdriver
 
 
-driver = webdriver.chrome()
+driver = tool.chrome()
 url = 'https://www.xiaolongkan.com/storesFind.html'
 wait = WebDriverWait(driver, 10)
 driver.get(url)
@@ -29,4 +28,4 @@ if len(tel) == 0:
 for i in range(807):
     result = num[i]+';'+name[i]+';'+time[i]+';'+tel[i]+';'+address[i]
     print(result)
-    writer.csv_write('data/xlk.csv',result)
+    tool.csv_write('data/out_data/xlk.csv',result)
